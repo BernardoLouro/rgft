@@ -60,7 +60,7 @@ test-model.py ->
 ## Notebook
 
 
-fine-tuning.jpy -> 
+fine-tuning.ipynb -> 
 
 
 ## License
