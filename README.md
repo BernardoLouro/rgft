@@ -14,12 +14,6 @@ Project-Description.
 
 </div>
 
-<div align="center">
-  
-![RepoBeats Statistics](RepoBeats-SVG-URL "Repobeats analytics image")
-
-</div>
-
 ## Table of Contents
 - [Template-Project. ](#template-project-)
   - [Table of Contents](#table-of-contents)
