@@ -1,0 +1,28 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Ignore the Windows .Desktop Files
+desktop.ini
+
+# Ignore the Compressed Files
+*.zip
+*.rar
+*.gz
+*.7z
+.tar.gz
+
+# Ignore the Data Directories
+*/Dados/
+*/Data/
+*/Dataset/
+*/Results/
+*/dados/
+*/data/
+*/dataset/
+*/results/
+
+# Ignore the Data Files
+*.csv
+*.xlsx
+.txt
