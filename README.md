@@ -15,24 +15,15 @@ Project-Description.
 </div>
 
 ## Table of Contents
-- [rule-gen-fine-tuning. ](#rule-gen-fine-tuning-)
+- [rule-gen-fine-tuning](#rule-gen-fine-tuning-)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
-  - [Setup](#setup)
-    - [Clone the repository](#clone-the-repository)
-  - [Installation:](#installation)
-  - [Run Programing Language Code:](#run-programing-language-code)
-    - [Dependencies](#dependencies)
-    - [Dataset - Optional](#dataset---optional)
-  - [Usage](#usage)
-  - [Results - Optional](#results---optional)
-  - [Contributing](#contributing)
-  - [Collaborators](#collaborators)
+  - [Datasets](#datasets)
+  - [Scripts](#scripts)
+  - [Notebook](#notebook)
   - [License](#license)
     - [Apache License 2.0](#apache-license-20)
-    - [Creative Commons Zero v1.0 Universal (CC0 1.0)](#creative-commons-zero-v10-universal-cc0-10)
-    - [MIT License](#mit-license)
 
 
 ## Introduction
@@ -45,24 +36,34 @@ Detailed project description.
 This project used Unsloth, follow their installation instructions here: [Unsloth](https://github.com/unslothai/unsloth).
 
 
-### Datasets
+## Datasets
 
 ```bash
-make dataset
+dataset_a1.json -> 
+```
+```bash
+dataset_a2.json -> 
+```
+```bash
+dataset_a3.json -> 
 ```
 
-## Usage
 
-In order to run the project, run the following command:
+## Scripts
 
 ```bash
-make run
+test-base-model.py -> 
 ```
 
-## Results - Optional
+```bash
+test-model.py -> 
+```
 
-Discuss the results obtained in the project.
+## Notebook
 
+```bash
+fine-tuning.jpy -> 
+```
 
 ## License
 
