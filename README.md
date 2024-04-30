@@ -1,6 +1,6 @@
 <div align="center">
   
-# [Template-Project.](Repository-URL) <img src="Icon-Image-URL"  width="3%" height="3%">
+# [rule-gen-fine-tuning.](Repository-URL) <img src="Icon-Image-URL"  width="3%" height="3%">
 
 </div>
 
@@ -15,7 +15,7 @@ Project-Description.
 </div>
 
 ## Table of Contents
-- [Template-Project. ](#template-project-)
+- [rule-gen-fine-tuning. ](#rule-gen-fine-tuning-)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
@@ -50,8 +50,8 @@ Bullet points of the requirements.
 1. Clone the repository with the following command:
 
 ```bash
-git clone https://github.com/BrenoFariasDaSilva/Template-Project.git
-cd Template-Project
+git clone https://github.com/BrenoFariasDaSilva/rule-gen-fine-tuning.git
+cd rule-gen-fine-tuning
 ```
 
 ## Installation:
@@ -89,7 +89,7 @@ make dependencies
 
 ### Dataset - Optional
 
-1. Download the dataset from [WEBSITE-HERE]() and place it in this project directory `(/Template-Project)` and run the following command:
+1. Download the dataset from [WEBSITE-HERE]() and place it in this project directory `(/rule-gen-fine-tuning)` and run the following command:
 
 ```bash
 make dataset
@@ -142,7 +142,7 @@ We thank the following people who contributed to this project:
   <tr>
     <td align="center">
       <a href="#" title="defina o titulo do link">
-        <img src="https://github.com/BrenoFariasdaSilva/Template-Project/blob/main/.assets/Images/Github.svg" width="100px;" alt="My Profile Picture"/><br>
+        <img src="https://github.com/BrenoFariasdaSilva/rule-gen-fine-tuning/blob/main/.assets/Images/Github.svg" width="100px;" alt="My Profile Picture"/><br>
         <sub>
           <b>Breno Farias da Silva</b>
         </sub>
@@ -150,7 +150,7 @@ We thank the following people who contributed to this project:
     </td>
     <td align="center">
       <a href="#" title="defina o titulo do link">
-        <img src="https://github.com/BrenoFariasdaSilva/Template-Project/blob/main/.assets/Images/Github.svg" width="100px;" alt="My Profile Picture"/><br>
+        <img src="https://github.com/BrenoFariasdaSilva/rule-gen-fine-tuning/blob/main/.assets/Images/Github.svg" width="100px;" alt="My Profile Picture"/><br>
         <sub>
           <b>Breno Farias da Silva</b>
         </sub>
@@ -158,7 +158,7 @@ We thank the following people who contributed to this project:
     </td>
     <td align="center">
       <a href="#" title="defina o titulo do link">
-        <img src="https://github.com/BrenoFariasdaSilva/Template-Project/blob/main/.assets/Images/Github.svg" width="100px;" alt="My Profile Picture"/><br>
+        <img src="https://github.com/BrenoFariasdaSilva/rule-gen-fine-tuning/blob/main/.assets/Images/Github.svg" width="100px;" alt="My Profile Picture"/><br>
         <sub>
           <b>Breno Farias da Silva</b>
         </sub>
