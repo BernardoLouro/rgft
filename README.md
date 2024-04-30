@@ -38,32 +38,30 @@ This project used Unsloth, follow their installation instructions here: [Unsloth
 
 ## Datasets
 
-```bash
+
 dataset_a1.json -> 
-```
-```bash
+
+
 dataset_a2.json -> 
-```
-```bash
+
+
 dataset_a3.json -> 
-```
 
 
 ## Scripts
 
-```bash
-test-base-model.py -> 
-```
 
-```bash
+test-base-model.py -> 
+
+
 test-model.py -> 
-```
+
 
 ## Notebook
 
-```bash
+
 fine-tuning.jpy -> 
-```
+
 
 ## License
 
