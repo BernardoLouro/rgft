@@ -8,14 +8,14 @@
   
 ---
 
-Project-Description.
+This projects acts as a tool to replicate the study found in the paper "Analysis of the Capability and Training of Chat Bots in the Generation of Rules for Firewall or Intrusion Detection Systems".
   
 ---
 
 </div>
 
 ## Table of Contents
-- [rule-gen-fine-tuning](#rule-gen-fine-tuning-)
+- [rule-gen-fine-tuning](#rule-gen-fine-tuning)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Requirements](#requirements)
@@ -28,7 +28,7 @@ Project-Description.
 
 ## Introduction
 
-Detailed project description.
+This project can be used to replicate the study mentioned above. Below there is a brief description of every file available.
 
 
 ## Requirements
@@ -39,28 +39,28 @@ This project used Unsloth, follow their installation instructions here: [Unsloth
 ## Datasets
 
 
-dataset_a1.json -> 
+dataset_a1.json -> Dataset used to fine-tune the model in approach one.
 
 
-dataset_a2.json -> 
+dataset_a2.json -> Dataset used to fine-tune the model in approach two.
 
 
-dataset_a3.json -> 
+dataset_a3.json -> Dataset used to fine-tune the model in approach three.
 
 
 ## Scripts
 
 
-test-base-model.py -> 
+test-base-model.py -> Python script used to test Mistral-7B base model(it can be used to test any model available in [HuggingFace](https://huggingface.co/).
 
 
-test-model.py -> 
+test-model.py -> Python script used to test fine-tuned models.
 
 
 ## Notebook
 
 
-fine-tuning.ipynb -> 
+fine-tuning.ipynb -> Jupiter notebook used to fine-tune the Mistral-7B model, which followed the example given by [Unsloth](https://github.com/unslothai/unsloth).
 
 
 ## License
