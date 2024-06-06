@@ -1,0 +1,407 @@
+[
+{
+"instruction": "Write an iptable rule to drop packets from the ip address 10.0.0.1",
+"input": "",
+"output": "iptables -A INPUT -s 10.0.0.1 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to accept packets from the ip address 10.10.0.1",
+"input": "",
+"output": "iptables -A INPUT -s 10.10.0.1 -j ACCEPT"
+},
+{
+"instruction": "Write an iptable rule to drop packets from an ip address",
+"input": "",
+"output": "iptables -A INPUT -s <source_ip> -j DROP"
+},
+{
+"instruction": "Write an iptable rule to accept packets from an ip address",
+"input": "",
+"output": "iptables -A INPUT -s <source_ip> -j ACCEPT"
+},
+{
+"instruction": "Write an iptable rule to drop packets to the ip address 177.250.176.36",
+"input": "",
+"output": "iptables -A INPUT -d 177.250.176.36 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to accept packets to the ip address 164.125.96.67",
+"input": "",
+"output": "iptables -A INPUT -d 164.125.96.67 -j ACCEPT"
+},
+{
+"instruction": "Write an iptable rule to accept packets to an ip address",
+"input": "",
+"output": "iptables -A INPUT -d <destination_ip> -j ACCEPT"
+},
+{
+"instruction": "Write an iptable rule to drop packets to an ip address",
+"input": "",
+"output": "iptables -A INPUT -d <destination_ip> -j DROP"
+},
+{
+"instruction": "Write an iptable rule to reject packets to the ip address 160.175.97.2",
+"input": "",
+"output": "iptables -A INPUT -d 160.175.97.2 -j REJECT"
+},
+{
+"instruction": "Write an iptable rule to reject packets from the ip address 194.98.208.154",
+"input": "",
+"output": "iptables -A INPUT -s 194.98.208.154 -j REJECT"
+},
+{
+"instruction": "Write an iptable rule to reject packets from an ip address",
+"input": "",
+"output": "iptables -A INPUT -s <source_ip> -j REJECT"
+},
+{
+"instruction": "Write an iptable rule to reject packets to an ip address",
+"input": "",
+"output": "iptables -A INPUT -d <destination_ip> -j REJECT"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the ip address 165.246.195.219",
+"input": "",
+"output": "iptables -A INPUT -p tcp -d 165.246.195.219 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop ip packets to the ip address 95.246.182.248",
+"input": "",
+"output": "iptables -A INPUT -p ip -d 95.246.182.248 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop udp packets from the ip address 80.166.28.58",
+"input": "",
+"output": "iptables -A INPUT -p udp -s 80.166.28.58 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets from the ip address 227.173.237.46",
+"input": "",
+"output": "iptables -A INPUT -p icmp -s 227.173.237.46 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with a length bigger than 312",
+"input": "",
+"output": "iptables -A INPUT -p icmp -m length --length 312 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with the icmp packet type 0",
+"input": "",
+"output": "iptables -A INPUT -p icmp --icmp-type 0 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with a specific icmp packet type",
+"input": "",
+"output": "iptables -A INPUT -p icmp --icmp-type <icmp_type> -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with the icmp packet type echo reply",
+"input": "",
+"output": "iptables -A INPUT -p icmp --icmp-type 0 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with the icmp packet type destination unreachable",
+"input": "",
+"output": "iptables -A INPUT -p icmp --icmp-type 3 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with the icmp packet type redirect",
+"input": "",
+"output": "iptables -A INPUT -p icmp --icmp-type 5 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop icmp packets with the icmp packet type echo",
+"input": "",
+"output": "iptables -A INPUT -p icmp --icmp-type 8 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop udp packets to a broadcast address",
+"input": "",
+"output": "iptables -A INPUT -p udp -d 255.255.255.255 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets with a syn flag",
+"input": "",
+"output": "iptables -A INPUT -p tcp --tcp-flags SYN -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets with ack and fin flags",
+"input": "",
+"output": "iptables -A INPUT -p tcp --tcp-flags ACK,FIN -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets with a rst flag",
+"input": "",
+"output": "iptables -A INPUT -p tcp --tcp-flags RST -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets with the state new",
+"input": "",
+"output": "iptables -A INPUT -p tcp -m --state NEW -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets with the states new and established",
+"input": "",
+"output": "iptables -A INPUT -p tcp -m --state NEW,ESTABLISHED -j DROP"
+},
+{
+"instruction": "Write an iptable rule to limit udp packets to 5 packets per second, with a limit burst of 10",
+"input": "",
+"output": "iptables -A INPUT -p udp -m limit --limit 5/s --limit-burst 10 -j ACCEPT"
+},
+{
+"instruction": "Write an iptable rule to limit udp packets in packets per second and with limit burst",
+"input": "",
+"output": "iptables -A INPUT -p udp -m limit --limit <limit> --limit-burst <limit_burst> -j ACCEPT"
+},
+{
+"instruction": "Write an iptable rule to limit existing tcp connections to 5",
+"input": "",
+"output": "iptables -A INPUT -p tcp -m connlimit --connlimit-above 5 -j REJECT"
+},
+{
+"instruction": "Write an iptable rule to limit the number existing tcp connections",
+"input": "",
+"output": "iptables -A INPUT -p tcp -m connlimit --connlimit-above <tcp_connections> -j REJECT"
+},
+{
+"instruction": "Write an iptable rule to drop udp packets to port 80",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 80 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop udp packets to a port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport <port_number> -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the echo service port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 7 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the dns port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 53 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the http port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 80 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the NetBIOS ports",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 137,139 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the https port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 443 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the mysql port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 3306 -j DROP"
+},
+{
+"instruction": "Write an iptable rule to drop tcp packets to the subseven port",
+"input": "",
+"output": "iptables -A INPUT -p udp -dport 27374 -j DROP"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets from the ip address 154.164.48.20",
+"input": "",
+"output": "alert tcp 154.164.48.20 any -> any any (msg:'packet from source ip 154.164.48.20';)"
+},
+{
+"instruction": "Write a snort rule to alert ip packets from an ip address",
+"input": "",
+"output": "alert ip <source_ip> any -> any any (msg:'packet from source ip <source_ip>';)"
+},
+{
+"instruction": "Write a snort rule to alert udp packets to an ip address",
+"input": "",
+"output": "alert udp any any -> <destination_ip> any (msg:'packet to destination ip <destination_ip>';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets to the ip address 24.160.43.241",
+"input": "",
+"output": "alert icmp any any -> 24.160.43.241 any (msg:'packet to destination ip 24.160.43.241';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets from the port 43267",
+"input": "",
+"output": "alert tcp any 43267 -> any any (msg:'packet from port 43267';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets from a port",
+"input": "",
+"output": "alert tcp any <port_number> -> any any (msg:'packet from port <port_number>';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets to a port",
+"input": "",
+"output": "alert icmp any any -> any <port_number> (msg:'packet to port <port_number>';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets to the port 12345",
+"input": "",
+"output": "alert icmp any any -> any 12345 (msg:'packet to port 12345';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the echo service port",
+"input": "",
+"output": "alert tcp any any -> any 7 (msg:'packet to echo service port';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the dns port",
+"input": "",
+"output": "alert tcp any any -> any 53 (msg:'packet to dns port';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the http port",
+"input": "",
+"output": "alert tcp any any -> any 80 (msg:'packet to http port';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the NetBIOS ports",
+"input": "",
+"output": "alert tcp any any -> any 137:139 (msg:'packets to NetBIOS ports';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the https port",
+"input": "",
+"output": "alert tcp any any -> any 443 (msg:'packets to https port';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the mysql port",
+"input": "",
+"output": "alert tcp any any -> any 3306 (msg:'packets to mysql port';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to the subseven port",
+"input": "",
+"output": "alert tcp any any -> any 27374 (msg:'packets to subseven port';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with the icmp packet type 3",
+"input": "",
+"output": "alert icmp any any -> any any (itype: 3; msg:'packets with icmp type 3';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with a specific icmp packet type",
+"input": "",
+"output": "alert icmp any any -> any any (itype: <icmp_type>; msg:'packets with icmp type <icmp_type>';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with the icmp packet type echo reply",
+"input": "",
+"output": "alert icmp any any -> any any (itype: 0; msg:'packets with icmp type echo reply';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with the icmp packet type destination unreachable",
+"input": "",
+"output": "alert icmp any any -> any any (itype: 3; msg:'packets with icmp type destination unreachable';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with the icmp packet type redirect",
+"input": "",
+"output": "alert icmp any any -> any any (itype: 5; msg:'packets with icmp type redirect';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with the icmp packet type echo",
+"input": "",
+"output": "alert icmp any any -> any any (itype: 8; msg:'packets with icmp type echo';)"
+},
+{
+"instruction": "Write a snort rule to alert icmp packets with the size bigger than 50432",
+"input": "",
+"output": "alert icmp any any -> any any (dsize > 50432; msg:'packets with size bigger than 50432';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets to a broadcast address",
+"input": "",
+"output": "alert tcp any any -> 255.255.255.255 any (msg:'packets to a broadcast address';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a syn flag",
+"input": "",
+"output": "alert tcp any any -> any any (flags: S; msg:'packets with syn flag';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with an ack and rst flag",
+"input": "",
+"output": "alert tcp any any -> any any (flags: AR; msg:'packets with ack and rst flag';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a fin flag",
+"input": "",
+"output": "alert tcp any any -> any any (flags: F; msg:'packets with fin flag';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a flow to client",
+"input": "",
+"output": "alert tcp any any -> any any (flow: to_client; msg:'packets with flow to client';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a flow established to server",
+"input": "",
+"output": "alert tcp any any -> any any (flow: established,to_server; msg:'packets with established connection and flow to server';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a flow not established from client with no stream",
+"input": "",
+"output": "alert tcp any any -> any any (flow: not_established,from_client,no_stream; msg:'packets with connection not established, flow from client and no stream';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a flow from server with only stream",
+"input": "",
+"output": "alert tcp any any -> any any (flow: from_server,only_stream; msg:'packets with flow from server and only stream';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a stateless flow",
+"input": "",
+"output": "alert tcp any any -> any any (flow: stateless; msg:'packets with stateless flow';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with no fragmented packets",
+"input": "",
+"output": "alert tcp any any -> any any (flow: no_frag; msg:'no fragmented packets';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with only fragmented packets",
+"input": "",
+"output": "alert tcp any any -> any any (flow: only_frag; msg:'fragmented packets';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a detection filter that tracks by source, with a count of 30 and 60 seconds",
+"input": "",
+"output": "alert tcp any any -> any any (detection_filter: track by_src, count 30, seconds 60; msg:'single source made 30 attempts to connect in 60 seconds';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with a detection filter that tracks by destination",
+"input": "",
+"output": "alert tcp any any -> any any (detection_filter: track by_dst, count <count>, seconds <s>; msg:'single source made <count> attempts to connect in <s> seconds';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with the content 'virus'",
+"input": "",
+"output": "alert tcp any any -> any any (content: 'virus'; msg:'packet with content 'virus'';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with fragmentation",
+"input": "",
+"output": "alert tcp any any -> any any (fragbits: M; msg:'fragmented packet';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with no fragmentation",
+"input": "",
+"output": "alert tcp any any -> any any (fragbits: D; msg:'packet not fragmented';)"
+},
+{
+"instruction": "Write a snort rule to alert tcp packets with the content 'danger', with a depth 4, offset 4 and byte test 2, >, 568",
+"input": "",
+"output": "alert tcp any any -> any any (content: 'danger', depth: 4, offset: 4; byte_test: 2, >, 568; msg:'packet with content danger';)"
+}
+]

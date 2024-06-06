@@ -1,0 +1,362 @@
+[
+  {
+"instruction": " What is a Local Area Network Denial (LAND) attack?",
+"input": "",
+"output": "It is an attack in which the attacker sets the source and destination information of a TCP segment to be the same."
+  },
+  {
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sets the source and destination information of a TCP segment to be the same.",
+"input": "",
+"output": "iptables -A INPUT -s <your_network_IP> -d <your_network_IP> -j DROP"
+  },
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sets the source and destination information of a TCP segment to be the same.", 
+"input": "", 
+"output": "alert tcp <your_network_IP> any -> <your_network_IP> any (msg:'Alert - Same Source and Destination IP';)"
+},
+{
+"instruction": " What is a Ping of Death attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a malformed ping packet that exceeds the maximum IPv4 packet size."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a malformed ping packet that exceeds the maximum IPv4 packet size.", 
+"input": "", 
+"output": "iptables -A INPUT -p icmp --icmp-type echo-request -m length --length 65535 -j DROP"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a malformed ping packet that exceeds the maximum IPv4 packet size.", 
+"input": "", 
+"output": "alert icmp any any -> any any (icmptype: any; dsize > 65535; msg: 'Large ICMP Packet';)"
+},
+{
+"instruction": " What is a Smurf attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of ICMP echo requests to an IP broadcast address, all of which have a spoofed source IP address of the intended victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of ICMP echo requests to an IP broadcast address, all of which have a spoofed source IP address of the intended victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p icmp -d 255.255.255.255 -j DROP"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of ICMP echo requests to an IP broadcast address, all of which have a spoofed source IP address of the intended victim.", 
+"input": "", 
+"output": "alert icmp any any -> 255.255.255.255 any (msg:'ICMP Packet to Broadcast Address';)"
+},
+{
+"instruction": " What is a Fraggle attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of UDP echo and chargen requests to an IP broadcast address, all of which have a spoofed source IP address of the intended victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of UDP echo and chargen requests to an IP broadcast address, all of which have a spoofed source IP address of the intended victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p udp -d 255.255.255.255 -j DROP"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of UDP echo and chargen requests to an IP broadcast address, all of which have a spoofed source IP address of the intended victim.", 
+"input": "", 
+"output": "alert udp any any -> 255.255.255.255 any (msg:'Alert UDP Packet with Broadcast Destination Address';)"
+},
+{
+"instruction": " What is a SYN Flood attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of TCP SYN packets to the victim, but does not respond to the victim's acknowledgement."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of TCP SYN packets to the victim, but does not respond to the victim's acknowledgement.", 
+"input": "", 
+"output": "iptables -A INPUT -p tcp --syn -m state --state NEW,ESTABLISHED -m limit --limit 10/s --limit-burst 15 -j ACCEPT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of TCP SYN packets to the victim, but does not respond to the victim's acknowledgement.", 
+"input": "", 
+"output": "alert tcp any any -> any any (flags: S; flow: stateless; detection_filter: track by_dst, count 50, seconds 10; msg: 'TCP SYN Flood Detected';)"
+},
+{
+"instruction": " What is a UDP Flood attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of UDP packets to random ports on the victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of UDP packets to random ports on the victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p udp -m limit --limit 10/s --limit-burst 15 -j ACCEPT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of UDP packets to random ports on the victim.", 
+"input": "", 
+"output": "alert udp any any -> any any (flow:stateless; detection_filter:track by_dst, count 50, seconds 10; msg: 'UDP Flood Detected';)"
+},
+{
+"instruction": " What is a RST/FIN Flood attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of TCP RST/FIN packets to the victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of TCP RST/FIN packets to the victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p tcp --tcp-flags RST,FIN -m limit --limit 10/s --limit-burst 15 -j ACCEPT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of TCP RST/FIN packets to the victim.", 
+"input": "", 
+"output": "alert tcp any any -> any any (flags: RF; flow: stateless; detection_filter: track by_dst, count 50, seconds 10; msg: 'RST/FIN Flood Detected';)"
+},
+{
+"instruction": " What is a Slowloris attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of HTTP requests to open connections and keeps them open for as long as possible."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of HTTP requests to open connections and keeps them open for as long as possible.", 
+"input": "", 
+"output": "iptables -A INPUT -p tcp -m connlimit --connlimit-above 10 -j REJECT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of HTTP requests to open connections and keeps them open for as long as possible.", 
+"input": "", 
+"output": "alert tcp any any -> any any (flow:established, to_server; detection_filter: track by_src, count 50, seconds 10; msg:'Possible Slowloris Attack';)"
+},
+{
+"instruction": " What is a R-U-Dead-Yet?(RUDY) attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker uses an attack tool that browses the target website and detects embedded web forms, sends legitimate HTTP POST requests with an abnormally long 'content-length' header to the victim and then starts injecting the form with information, one byte-size packet at a time and at a very slow rate."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker uses an attack tool that browses the target website and detects embedded web forms, sends legitimate HTTP POST requests with an abnormally long 'content-length' header to the victim and then starts injecting the form with information, one byte-size packet at a time and at a very slow rate.", 
+"input": "", 
+"output": "iptables -A INPUT -m conntrack --ctstate ESTABLISHED -m conntrack --ctexpire 300 -j ACCEPT"
+},
+{
+"instruction": " What is a Slow Read attack?",
+"input": "",
+"output": "It is an attack in which the attacker sends legitimate HTTP requests to the victim and then reads the response very slowly."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends legitimate HTTP requests to the victim and then reads the response very slowly.", 
+"input": "", 
+"output": "iptables -A INPUT -m conntrack --ctstate ESTABLISHED -m conntrack --ctexpire 300 -j ACCEPT"
+},
+{
+"instruction": " What is a Slow POST attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends legitimate HTTP POST headers to the victim and then sends the message very slowly."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends legitimate HTTP POST headers to the victim and then sends the message very slowly.", 
+"input": "", 
+"output": "iptables -A INPUT -m conntrack --ctstate ESTABLISHED -m conntrack --ctexpire 300 -j ACCEPT"
+},
+{
+"instruction": " What is a DNS Amplification attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a large number of DNS requests to a DNS server with a spoofed source IP address of the victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends a large number of DNS requests to a DNS server with a spoofed source IP address of the victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p udp --dport 53 -m connlimit --connlimit-above 10 -j REJECT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a large number of DNS requests to a DNS server with a spoofed source IP address of the victim.", 
+"input": "", 
+"output": "alert udp any any -> any 53 (flow:stateless; detection_filter:track by_dst, count 50, seconds 10; msg:'Possible DNS Amplification Attack';)"
+},
+{
+"instruction": " What is a BlackNurse attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends some ICMP Destination Unreachable packets to the victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker sends some ICMP Destination Unreachable packets to the victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p icmp --icmp-type 3 -j DROP"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends some ICMP Destination Unreachable packets to the victim.", 
+"input": "", 
+"output": "alert icmp any any -> any any (itype: 3; msg:'Possible BlackNurse Attack';)"
+},
+{
+"instruction": " What is a Low Orbit Ion Cannon (LOIC) attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker uses a LOIC tool to send a large number of TCP/UDP/HTTP requests to the victim."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker uses a LOIC tool to send a large number of TCP/UDP/HTTP requests to the victim.", 
+"input": "", 
+"output": "iptables -A INPUT -p tcp -m connlimit --connlimit-above 10 -j REJECT iptables -A INPUT -p udp -m connlimit --connlimit-above 10 -j REJECT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker uses a LOIC tool to send a large number of TCP/UDP/HTTP requests to the victim.", 
+"input": "", 
+"output": "alert tcp any any -> any any (flow:stateless; detection_filter:track by_dst, count 50, seconds 10; msg:'Possible LOIC Attack Detected';) alert udp any any -> any any (flow:stateless; detection_filter:track by_dst, count 50, seconds 10; msg:'Possible LOIC Attack Detected';)"
+},
+{
+"instruction": " What is a High Orbit Ion Cannon (HOIC) attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker floods the victim with a large number of HTTP POST and GET requests."
+},
+{
+"instruction": " Write an iptable rule that avoids an attack in which the attacker floods the victim with a large number of HTTP POST and GET requests.", 
+"input": "", 
+"output": "iptables -A INPUT -p tcp -m connlimit --connlimit-above 10 -j REJECT"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker floods the victim with a large number of HTTP POST and GET requests.", 
+"input": "", 
+"output": "alert tcp any any -> any any (msg:'Possible HOIC Attack Detected'; flow:stateless; detection_filter:track by_dst, count 50, seconds 10; content:'POST'; http_method; content:'GET'; http_method;)"
+},
+{
+"instruction": " What is a SubSeven attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker uses a Remote Access Trojan (RAT) to control the victim's computer."
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker uses a Remote Access Trojan (RAT) to control the victim's computer.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET 27374 -> $HOME_NET any (msg:'BACKDOOR subseven 22'; flow:to_server,established; content:'|0D 0A|[RPL]002|0D 0A|';)"
+},
+{
+"instruction": " What is a Teardrop attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a series of fragmented packets.)"
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a series of fragmented packets.", 
+"input": "", 
+"output": "alert udp $EXTERNAL_NET any -> $HOME_NET any (msg:'DOS Teardrop attack'; fragbits:M; id:242;)"
+},
+{
+"instruction": " What is a WinNuke attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends a string of out-of-band data to the victim."
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends a string of out-of-band data to the victim.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $HOME_NET 135:139 (msg:'DOS Winnuke attack'; flow:stateless; flags:U+;)"
+},
+{
+"instruction": " What is a Squid WCCP Message Overflow attack?", 
+"input": "", 
+"output": "It is an attack in which the attacker sends WCCP messages with more data than the buffer can handle."
+},
+{
+"instruction": " Write a snort rule that alerts an attack in which the attacker sends WCCP messages with more data than the buffer can handle.", 
+"input": "", 
+"output": "alert udp $EXTERNAL_NET any -> $HOME_NET 2048 (msg:'DOS squid WCCP I_SEE_YOU message overflow attempt'; content:'|00 00 00 08|'; depth:4; byte_test:4,>,32,16; reference:cve,CAN-2005-0095; reference:bugtraq,12275; classtype:attempted-user; sid:3089; rev:1;)"
+},
+{
+"instruction": " What is a SSH CRC32 Overflow /bin/sh exploit?",
+"input": "", 
+"output": "It is an attack in which the attacker executes arbitrary commands on an SSH server via an integer overflow."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker executes arbitrary commands on an SSH server via an integer overflow.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $HOME_NET 22 (msg:'EXPLOIT ssh CRC32 overflow /bin/sh'; flow:to_server,established; content:'/bin/sh';)"
+},
+{
+"instruction": " What is a x86 Linux Samba Overflow exploit?",
+"input": "", 
+"output": "It is an attack in which the attacker exploits the flaw on x86 Linux systems that don't have the noexec stack option set and the buffer overflow found in Samba."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker exploits the flaw on x86 Linux systems that don't have the noexec stack option set and the buffer overflow found in Samba.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $HOME_NET 139 (msg:'EXPLOIT x86 Linux samba overflow'; flow:to_server,established; content:'|EB|/_|EB|J^|89 FB 89|>|89 F2|';)"
+},
+{
+"instruction": " What is a ISAKMP First Payload Certificate Request Length Overflow exploit?",
+"input": "", 
+"output": "It is an attack in which the attacker executes arbitrary code via an ISAKMP packet with a large Certificate Request packet."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker executes arbitrary code via an ISAKMP packet with a large Certificate Request packet.", 
+"input": "", 
+"output": "alert udp $EXTERNAL_NET any -> $HOME_NET 500 (msg:'EXPLOIT ISAKMP first payload certificate request length overflow attempt'; byte_test:4,>,2043,24; content:'|07|'; depth:1; offset:16; byte_test:2,>,2043,30;)"
+},
+{
+"instruction": " What is a MYSQL Root Login attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to log in as root on a MYSQL server."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to log in as root on a MYSQL server.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $SQL_SERVERS 3306 (msg:'MYSQL root login attempt'; flow:to_server,established; content:'|0A 00 00 01 85 04 00 00 80|root|00|';)"
+},
+{
+"instruction": " What is a MYSQL Show Databases attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to show the databases on a MYSQL server."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to show the databases on a MYSQL server.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $SQL_SERVERS 3306 (msg:'MYSQL show databases attempt'; flow:to_server,established; content:'|0F 00 00 00 03|show databases';)"
+},
+{
+"instruction": " What is a NETBIOS NT NULL Session Request attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to cause a denial of service via a NetBIOS session request packet with a NULL source name."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to cause a denial of service via a NetBIOS session request packet with a NULL source name.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $HOME_NET 139 (msg:'NETBIOS NT NULL session'; flow:to_server,established; content:'|00 00 00 00|W|00|i|00|n|00|d|00|o|00|w|00|s|00| |00|N|00|T|00| |00|1|00|3|00|8|00|1';)"
+},
+{
+"instruction": " What is a SHELLCODE sparc setuid 0 attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to exploit the setuid() function on a SPARC architecture."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to exploit the setuid() function on a SPARC architecture.", 
+"input": "", 
+"output": "alert ip $EXTERNAL_NET $SHELLCODE_PORTS -> $HOME_NET any (msg:'SHELLCODE sparc setuid 0'; content:'|82 10| |17 91 D0| |08|';)"
+},
+{
+"instruction": " What is a SHELLCODE x86 setgid 0 attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to exploit the setgid() function on a x86 architecture."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to exploit the setgid() function on a x86 architecture.", 
+"input": "", 
+"output": "alert ip $EXTERNAL_NET $SHELLCODE_PORTS -> $HOME_NET any (msg:'SHELLCODE x86 setgid 0'; content:'|B0 B5 CD 80|';)"
+},
+{
+"instruction": " What is a SHELLCODE x86 setuid 0 attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to exploit the setuid() function on a x86 architecture."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to exploit the setuid() function on a x86 architecture.", 
+"input": "", 
+"output": "alert ip $EXTERNAL_NET $SHELLCODE_PORTS -> $HOME_NET any (msg:'SHELLCODE x86 setuid 0'; content:'|B0 17 CD 80|';)"
+},
+{
+"instruction": " What is a SQL Worm Propagation attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to propagate a SQL worm."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to propagate a SQL worm.", 
+"input": "", 
+"output": "alert udp $EXTERNAL_NET any -> $HOME_NET 1434 (msg:'SQL Worm propagation attempt'; content:'|04|'; depth:1; content:'|81 F1 03 01 04 9B 81 F1 01|'; content:'sock'; content:'send';)"
+},
+{
+"instruction": " What is a Cross Site Scripting (XSS) attempt?",
+"input": "", 
+"output": "It is an attack in which the attacker attempts to inject malicious scripts into a website."
+},
+{
+"instruction": " Write a snort rule that alerts when the attacker attempts to inject malicious scripts into a website.", 
+"input": "", 
+"output": "alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS $HTTP_PORTS (msg:'Cross site scripting attempt'; flow:to_server,established; content:'<SCRIPT>'; nocase;)"
+}
+]
