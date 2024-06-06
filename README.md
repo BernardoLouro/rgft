@@ -56,6 +56,8 @@ test-base-model.py -> Python script used to test Mistral-7B base model(it can be
 
 test-model.py -> Python script used to test fine-tuned models.
 
+rouge-score.py -> Python script used to obtain the rouge score.
+
 
 ## Notebook
 
