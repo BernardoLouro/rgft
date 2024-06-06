@@ -54,9 +54,9 @@ dataset_a3.json -> Dataset used to fine-tune the model in approach three.
 test-base-model.py -> Python script used to test Mistral-7B base model(it can be used to test any model available in [HuggingFace](https://huggingface.co/)).
 
 
-test-model.py -> Python script used to test fine-tuned models.
+test_model.py -> Python script used to test fine-tuned models.
 
-rouge-score.py -> Python script used to obtain the rouge score.
+rouge_metric.py -> Python script used to obtain the rouge score.
 
 
 ## Notebook
