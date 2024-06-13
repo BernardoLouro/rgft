@@ -9,6 +9,9 @@
 ---
 
 This projects acts as a tool to replicate the study found in the paper "Analysis of the Capability and Training of Chat Bots in the Generation of Rules for Firewall or Intrusion Detection Systems".
+You are free to use any of these datasets, but please include the reference below in your paper in case you do so:
+
+Bernardo Louro, Raquel Abreu, Joana C. Costa, João B. F. Sequeiros, and Pedro R. M. Inácio. 2024. Analysis of the Capability and Training of Chat Bots in the Generation of Rules for Firewall or Intrusion Detection Systems. In The 19th International Conference on Availability, Reliability and Security (ARES 2024), July 30-August 2, 2024, Vienna, Austria. ACM, New York, NY, USA, 7 pages. https://doi.org/10.1145/3664476.3670902
   
 ---
 
